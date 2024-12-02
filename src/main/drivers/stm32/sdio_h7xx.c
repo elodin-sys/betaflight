@@ -160,7 +160,8 @@ void sdioPinConfigure(void)
 
 #undef SDIOFINDPIN
 
-#define IOCFG_SDMMC       IO_CONFIG(GPIO_MODE_AF_PP, GPIO_SPEED_FREQ_VERY_HIGH, GPIO_NOPULL)
+#define IOCFG_SDMMC        IO_CONFIG(GPIO_MODE_AF_PP, GPIO_SPEED_FREQ_VERY_HIGH, GPIO_NOPULL)
+#define IOCFG_SDMMC_PULLUP IO_CONFIG(GPIO_MODE_AF_PP, GPIO_SPEED_FREQ_VERY_HIGH, GPIO_PULLUP)
 
 void HAL_SD_MspInit(SD_HandleTypeDef* hsd)
 {
@@ -192,13 +193,13 @@ void HAL_SD_MspInit(SD_HandleTypeDef* hsd)
     const IO_t d3 = IOGetByTag(sdioPin[SDIO_PIN_D3].pin);
 
     IOConfigGPIOAF(clk, IOCFG_SDMMC, sdioPin[SDIO_PIN_CK].af);
-    IOConfigGPIOAF(cmd, IOCFG_SDMMC, sdioPin[SDIO_PIN_CMD].af);
-    IOConfigGPIOAF(d0, IOCFG_SDMMC, sdioPin[SDIO_PIN_D0].af);
+    IOConfigGPIOAF(cmd, IOCFG_SDMMC_PULLUP, sdioPin[SDIO_PIN_CMD].af);
+    IOConfigGPIOAF(d0, IOCFG_SDMMC_PULLUP, sdioPin[SDIO_PIN_D0].af);
 
     if(is4BitWidth) {
-        IOConfigGPIOAF(d1, IOCFG_SDMMC, sdioPin[SDIO_PIN_D1].af);
-        IOConfigGPIOAF(d2, IOCFG_SDMMC, sdioPin[SDIO_PIN_D2].af);
-        IOConfigGPIOAF(d3, IOCFG_SDMMC, sdioPin[SDIO_PIN_D3].af);
+        IOConfigGPIOAF(d1, IOCFG_SDMMC_PULLUP, sdioPin[SDIO_PIN_D1].af);
+        IOConfigGPIOAF(d2, IOCFG_SDMMC_PULLUP, sdioPin[SDIO_PIN_D2].af);
+        IOConfigGPIOAF(d3, IOCFG_SDMMC_PULLUP, sdioPin[SDIO_PIN_D3].af);
     }
 
     HAL_NVIC_SetPriority(sdioHardware->irqn, NVIC_PRIORITY_BASE(NVIC_PRIO_SDIO_DMA), NVIC_PRIORITY_SUB(NVIC_PRIO_SDIO_DMA));
