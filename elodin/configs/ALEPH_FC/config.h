@@ -36,10 +36,12 @@
 #define LED1_PIN            PD11
 #define LED2_PIN            PD10
 
+#define ADC_VBAT_PIN        PF12
+#define ADC_CURR_PIN        PF11
+
 #define TIMUP1_DMA_OPT      0
 #define TIMUP2_DMA_OPT      0
-#define TIMUP3_DMA_OPT      0
-#define TIMUP4_DMA_OPT      0
+#define ADC1_DMA_OPT        8
 
 // SD card
 #define USE_SDCARD
@@ -52,6 +54,13 @@
 #define SDIO_D1_PIN         PC9
 #define SDIO_D2_PIN         PC10
 #define SDIO_D3_PIN         PC11
+
+#define DEFAULT_BLACKBOX_DEVICE         BLACKBOX_DEVICE_SDCARD
+#define DEFAULT_CURRENT_METER_SOURCE    CURRENT_METER_ADC
+#define DEFAULT_VOLTAGE_METER_SOURCE    VOLTAGE_METER_ADC
+// Defaults are based on PM02 V3 Power Module (12S)
+#define DEFAULT_VOLTAGE_METER_SCALE     182
+#define DEFAULT_CURRENT_METER_SCALE     275
 
 #define TIMER_PIN_MAPPING \
     TIMER_PIN_MAP( 0, PE9,  1, 0) \
