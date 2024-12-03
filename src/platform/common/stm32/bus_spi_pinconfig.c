@@ -180,10 +180,12 @@ const spiHardware_t spiHardware[] = {
         .sckPins = {
             { DEFIO_TAG_E(PA5), GPIO_AF5_SPI1 },
             { DEFIO_TAG_E(PB3), GPIO_AF5_SPI1 },
+            { DEFIO_TAG_E(PG11), GPIO_AF5_SPI1 },
         },
         .misoPins = {
             { DEFIO_TAG_E(PA6), GPIO_AF5_SPI1 },
             { DEFIO_TAG_E(PB4), GPIO_AF5_SPI1 },
+            { DEFIO_TAG_E(PG9), GPIO_AF5_SPI1 },
         },
         .mosiPins = {
             { DEFIO_TAG_E(PA7), GPIO_AF5_SPI1 },
