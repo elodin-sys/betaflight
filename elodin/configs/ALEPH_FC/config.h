@@ -74,3 +74,6 @@
 #define GYRO_1_SPI_INSTANCE  SPI1
 
 #define MSP_UART             SERIAL_PORT_USART1
+
+#define USE_RANGEFINDER
+#define USE_RANGERFINDER_MT
