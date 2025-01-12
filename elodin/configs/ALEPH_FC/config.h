@@ -33,6 +33,7 @@
 #define UART4_TX_PIN        PB9
 #define UART4_RX_PIN        PB8
 
+#define LED0_PIN            PB15
 #define LED1_PIN            PD11
 #define LED2_PIN            PD10
 
