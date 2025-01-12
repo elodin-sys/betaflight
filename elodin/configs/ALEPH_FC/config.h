@@ -80,3 +80,5 @@
 
 #define USE_OPTICALFLOW
 #define USE_OPTICALFLOW_MT
+
+#define USE_ALTITUDE_HOLD
